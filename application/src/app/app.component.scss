@@ -1,0 +1,86 @@
+.chatcontainer {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  border-radius: 8px;
+
+  .userList {
+    background-color: #0056b3;
+    flex: 1;
+
+    .user {
+      padding: 15px;
+      border-bottom: 1px solid #ccc;
+      color: white;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #004080;
+      }
+    }
+
+    .active {
+      background-color: #003366;
+    }
+  }
+
+  .conversation {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .messages {
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 10px 0;
+
+      .message {
+        padding: 10px;
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+        border-radius: 8px;
+
+        &.sent {
+          align-self: flex-end;
+          background-color: #003366;
+          color: white;
+        }
+
+        &.received {
+          align-self: flex-start;
+          background-color: #5ca1ea;
+        }
+      }
+    }
+
+    .inputArea {
+      display: flex;
+      border-top: 1px solid #ccc;
+      padding-bottom: 10px;
+
+      input {
+        flex: 1;
+        padding: 10px;
+        border: none;
+        outline: none;
+      }
+
+      button {
+        padding: 10px 20px;
+        border: none;
+        background-color: #007bff;
+        color: white;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #0056b3;
+        }
+      }
+    }
+  }
+}

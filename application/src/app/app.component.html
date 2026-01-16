@@ -1,0 +1,24 @@
+<div class="chatcontainer">
+  <div class="userList">
+    @for (user of users; track user.id) {
+      <div class="user" [ngClass]="user.id === activeUserId ? 'active' : ''" (click)="switchConversation(user.id)">
+        {{ user.name }}
+      </div>
+    }
+  </div>
+  <div class="conversation">
+    <div class="messages">
+      @for (msg of messages(); track msg.id) {
+        <div class="message" [ngClass]="msg.user.id === activeUserId ? 'sent' : 'received'">
+          <strong>{{ msg.user.name }}:</strong>
+          <span>{{ msg.message }}</span>
+          <span>{{ msg.createdAt | date:'shortTime' }}</span>
+        </div>
+      }
+    </div>
+    <div class="inputArea">
+      <input type="text" [(ngModel)]="newMessage" (keydown.enter)="sendMessage()" placeholder="Type your message..." />
+      <button (click)="sendMessage()">Send</button>
+    </div>
+  </div>
+</div>
